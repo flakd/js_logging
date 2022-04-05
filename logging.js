@@ -88,10 +88,10 @@ function log2(level, callerName) {
       consoleFunc("%c--------------------------------------------", logStyle4);
     },
     next: function next(callNextName) {
-      consoleFunc("%cInside of: %c'%s()', %cNext: %c'%s.'", logStyle1, logStyle2, callerName, logStyle3, logStyle4, callNextName);
+      consoleFunc("%cInside of: %c'%s()'%c, Next: %c'%s.'", logStyle1, logStyle2, callerName, logStyle3, logStyle4, callNextName);
     },
     prev: function prev(callNextName) {
-      consoleFunc("%cInside of: %c'%s()', %cPrev: %c'%s.'", logStyle1, logStyle2, callerName, logStyle3, logStyle4, callNextName);
+      consoleFunc("%cInside of: %c'%s()'%c, Prev: %c'%s.'", logStyle1, logStyle2, callerName, logStyle3, logStyle4, callNextName);
     }
   }); //END return of log() function
 
