@@ -82,19 +82,22 @@ function log2(level, callerName) {
 
 
   return ({ //  return object containing specific funcs(top, btm, next, prev)
-    w: function w(msg1,msg2)  {
-      writeIt(null, msg1, msg2)
+    w1: function w(msg1)  {
+      writeIt("", msg1,"")
+    },
+    w2: function w2(msg1, msg2) {
+      writeIt("", msg1, msg2);
     },
     inside: function inside(msg){
-      writeIt("Inside of ",msg);      
+      writeIt("Inside of: ",msg);      
     },
     top: function top(msg) {
       //consoleFunc("%c                                            ", logStyle1);
       // ("%cTop of%c: '%s()'",logStyle1,logStyle2,callerName);
-      writeIt("Top of",msg);
+      writeIt("Top of: ",msg);
     },
     btm: function btm(msg) {
-      writeIt("Bottom of",msg);
+      writeIt("Bottom of: ",msg);
       // consoleFunc("%cBottom of%c: '%s()'",logStyle3,logStyle2,callerName);
       consoleFunc("%c--------------------------------------------", logStyle4);
     },
