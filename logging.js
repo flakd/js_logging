@@ -34,6 +34,7 @@ function log2_old(msg, callerName) {
 
 function log2(level, callerName) {
   if (!isLoggingOn) return;  
+  let logLvlPrefix = "";
 
   let consoleFunc;
   switch (level) {
@@ -41,6 +42,10 @@ function log2(level, callerName) {
     case 2: consoleFunc = console.warn; break;
     case 3: consoleFunc = console.log; break;
     case 4: consoleFunc = console.debug; break;
+    case 41: 
+      consoleFunc = console.debug;
+      logLvlPrefix = "LLV1: ";
+    break;
     default:
       throw `LOGGING ERROR => 1st PARAM('${level}') is invalid. Only values [1,2,3, or 4] are valid!`
   }  
@@ -57,8 +62,14 @@ function log2(level, callerName) {
     
   function writeIt(loc, msg1, msg2) {
     if (loc === undefined || loc === null) {
-      if (msg1 ===undefined || msg2 === undefined) throw "UNDEFINED msg1 OR msg2 in 'writeIt()"
-      consoleFunc("%c%s: %c%s% %c.", logStyle1, msg1, logStyle2, msg2, logStyle1);
+      //if (msg1 ===undefined || msg2 === undefined) throw "UNDEFINED msg1 OR msg2 in 'writeIt()"
+      //if (msg1 === undefined || msg2 === undefined) {
+      //  console.error("UNDEFINED msg1 OR msg2 internal func log2.writeIt() => RETURNING");
+      //  return;
+      //} else {
+      //  // we don't add the words "Inside Of" or anything else
+        consoleFunc(`${logLvlPrefix}%c${msg1}: %c${msg2} %c.`, logStyle1, logStyle2, logStyle1);
+      //}
     } else {
       if (msg1 === undefined) {
         msg1 = "";
