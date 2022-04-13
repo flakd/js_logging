@@ -77,7 +77,7 @@ function log2(level, callerName) {
     w: function w(msg1, msg2, msg3, msg4)  {
       writeIt("", "", msg1, msg2, msg3, msg4);
     },
-    inside: function inside(msg, msg2) {
+    inside: function inside(msg1, msg2) {
       writeIt("Inside of: ", callerName, msg1, msg2);
     },
     top: function top(msg1, msg2) {
