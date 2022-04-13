@@ -16,22 +16,6 @@ console.log("window.isLoggingOn = %s", isLoggingOn);
 console.log("const isLoggingOn = window.isLoggingOn = %s", isLoggingOn);
 
 
-function log2_old(msg, callerName) {
-  if (!isLoggingOn) return;
-  if (callerName === undefined || callerName === "") {    
-    callerName = log2.caller.name;
-    console.warn("In 'log2()': PARAM {callerName} is NULL => using {log2.caller.name}");
-    if (callerName === undefined || callerName === ""){
-      callerName = "anonymous";
-      console.warn("In 'log2()': PARAM {log2.caller.name} is NULL => using 'anonymous'");
-    }
-  }
-  //  this log2() function must be hardcoded to do further logging at the 
-  //  "Warn" level by literally passing "console.warn()" method as a param
-  //  (levels=Error, Warn, Info, Verbose/Debug > levels=1,2,3,4)
-  return log(msg, callerName, console.warn);
-}
-
 function log2(level, callerName) {
   if (!isLoggingOn) return;  
   let logLvlPrefix = "";
