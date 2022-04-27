@@ -29,7 +29,15 @@ function log2(level, callerName) {
     case 41: 
       consoleFunc = console.debug;
       logLvlPrefix = "LLV1:";
-    break;
+      break;
+    case 42:
+      consoleFunc = console.debug;
+      logLvlPrefix = "LLV2:";
+      break;    
+    case 43:
+      consoleFunc = console.debug;
+      logLvlPrefix = "LLV3:";
+      break;      
     default:
       throw `LOGGING ERROR => 1st PARAM('${level}') is invalid. Only values [1,2,3, or 4] are valid!`
   }  
